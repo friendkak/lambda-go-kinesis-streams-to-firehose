@@ -51,6 +51,6 @@ $ aws lambda create-alias --function-name sync-kinesis-streams-to-firehose --nam
 $ aws lambda create-event-source-mapping --function-name arn:aws:lambda:ap-northeast-1:[AWS Account ID]:function:sync-kinesis-streams-to-firehose:Active --event-source arn:aws:kinesis:ap-northeast-1:[AWS Account ID]:stream/sync-target --starting-position LATEST
 ```
 
-## License
+### License
 
 - License: Apache License, Version 2.0
