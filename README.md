@@ -44,9 +44,13 @@ $ zip -j syncKinesisStreamtoFirehose.zip syncKinesisStreamtoFirehose
 ```
 $ aws iam create-role --role-name sync-lambda-role --assume-role-policy-document file://deploy_config/lambda-assume-role-policy.json
 $ aws iam put-role-policy --role-name sync-lambda-role --policy-name sync-lambda-policy --policy-document file://deploy_config/sync-lambda-policy.json
-$ $ aws lambda create-function --function-name sync-kinesis-streams-to-firehose --runtime go1.x --role arn:aws:iam::[AWS Account ID]:role/sync-lambda-role --handler syncKinesisStreamstoFirehose --zip-file fileb://syncKinesisStreamtoFirehose.zip
+$ aws lambda create-function --function-name sync-kinesis-streams-to-firehose --runtime go1.x --role arn:aws:iam::[AWS Account ID]:role/sync-lambda-role --handler syncKinesisStreamstoFirehose --zip-file fileb://syncKinesisStreamtoFirehose.zip
 $ aws lambda update-function-configuration --function-name hl-dev-tagged_ltsv --environment "Variables={AddPrefix=AAA,Region=BBB,RemovePrefix=CCC,ReplacePattern=DDD,TargetColumn=EEE,DeliveryStream=FFF,DefaultStream=GGG}"
 $ aws lambda publish-version --function-name sync-kinesis-streams-to-firehose
 $ aws lambda create-alias --function-name sync-kinesis-streams-to-firehose --name Active --function-version 1
 $ aws lambda create-event-source-mapping --function-name arn:aws:lambda:ap-northeast-1:[AWS Account ID]:function:sync-kinesis-streams-to-firehose:Active --event-source arn:aws:kinesis:ap-northeast-1:[AWS Account ID]:stream/sync-target --starting-position LATEST
 ```
+
+## License
+
+- License: Apache License, Version 2.0
