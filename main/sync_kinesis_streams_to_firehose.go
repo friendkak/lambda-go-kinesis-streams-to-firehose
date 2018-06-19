@@ -48,7 +48,7 @@ func syncKinesisStreamstoFirehose(ctx context.Context, kinesisEvent events.Kines
 		TargetColumn:    os.Getenv("TargetColumn"),
 		RemovePrefix:    os.Getenv("RemovePrefix"),
 		AddPrefix:       os.Getenv("AddPrefix"),
-		ReplacePatterns: firehoseput.CreateReplacePatterns(os.Getenv("ReplacePattern")),
+		ReplacePatterns: converter.CreateReplacePatterns(os.Getenv("ReplacePattern")),
 	}
 
 	putDatas := converter.ConvertToFirehoseDatas(recordTexts)

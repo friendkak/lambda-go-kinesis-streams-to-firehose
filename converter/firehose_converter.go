@@ -1,4 +1,4 @@
-package firehoseput
+package converter
 
 import (
 	"strings"
